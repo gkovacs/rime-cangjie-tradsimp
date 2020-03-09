@@ -42,18 +42,21 @@ engine:
     - matcher
     - abc_segmentor
     - affix_segmentor@putonghua_to_cangjie_lookup
+    - affix_segmentor@cangjie_to_putonghua_lookup
     - punct_segmentor
     - fallback_segmentor
   translators:
     - punct_translator
     - reverse_lookup_translator
     - script_translator@putonghua_to_cangjie_lookup
+    - table_translator@cangjie_to_putonghua_lookup
     - table_translator
   filters:
     #- simplifier
     #- uniquifier
     #- single_char_filter
     - reverse_lookup_filter@putonghua_to_cangjie_reverse_lookup
+    - reverse_lookup_filter@cangjie_to_putonghua_reverse_lookup
 
 speller:
   alphabet: 'zyxwvutsrqponmlkjihgfedcba;,./'
@@ -76,9 +79,34 @@ translator:
     - "^z.*$"
     - "^yyy.*$"
 
-#abc_segmentor:
-#  extra_tags:
-#    - reverse_lookup  # 與拼音（反查碼）混打
+abc_segmentor:
+  extra_tags:
+    - cangjie_to_putonghua_lookup  # 與拼音（反查碼）混打
+
+cangjie_to_putonghua_lookup:    # 倉頡五代反查
+  tag: "cangjie_to_putonghua_lookup"
+  dictionary: "cangjie5_tradsimp"
+  enable_user_dict: false
+  enable_completion: true
+  enable_sentence: false
+  sentence_over_completion: false
+  max_phrase_length: 1
+  prefix: "`C"
+  suffix: "`"
+  tips: 【仓】
+  preedit_format:
+    - 'xform/^([a-z]*)$/$1\t（\U$1\E）/'
+    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
+  comment_format:
+    - "xlit|abcdefghijklmnopqrstuvwxyz~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符～|"
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+    - "^yyy.*$"
+
+cangjie_to_putonghua_reverse_lookup:
+  tags: [ cangjie_to_putonghua_lookup ]
+  #overwrite_comment: true
+  dictionary: "leimaau_jyutping_zhuyin_nospaces"
 
 putonghua_to_cangjie_lookup:
   #dictionary: luna_pinyin
