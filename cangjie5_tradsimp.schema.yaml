@@ -53,7 +53,7 @@ engine:
     - table_translator
   filters:
     #- simplifier
-    #- uniquifier
+    - uniquifier
     #- single_char_filter
     - reverse_lookup_filter@putonghua_to_cangjie_reverse_lookup
     - reverse_lookup_filter@cangjie_to_putonghua_reverse_lookup
@@ -61,6 +61,17 @@ engine:
 speller:
   alphabet: 'zyxwvutsrqponmlkjihgfedcba;,./'
   delimiter: " '"
+  algebra:
+    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2/
+    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1z$3/
+    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2$3/
+    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2$3$4/
+    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1z$3$4/
+    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1$2z$4/
+    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2$3$4$5/
+    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1z$3$4$5/
+    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1$2z$4$5/
+    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1$2$3z$5/
   #max_code_length: 5  # 五碼頂字上屏
 
 translator:
@@ -72,9 +83,9 @@ translator:
   max_phrase_length: 1
   preedit_format:
     - 'xform/^([a-z]*)$/$1\t（\U$1\E）/'
-    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
+    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重|"
   comment_format:
-    - "xlit|abcdefghijklmnopqrstuvwxyz~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符～|"
+    - "xlit|abcdefghijklmnopqrstuvwxyz~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重～|"
   disable_user_dict_for_patterns:
     - "^z.*$"
     - "^yyy.*$"
@@ -96,9 +107,9 @@ cangjie_to_putonghua_lookup:    # 倉頡五代反查
   tips: 【仓】
   preedit_format:
     - 'xform/^([a-z]*)$/$1\t（\U$1\E）/'
-    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
+    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重|"
   comment_format:
-    - "xlit|abcdefghijklmnopqrstuvwxyz~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符～|"
+    - "xlit|abcdefghijklmnopqrstuvwxyz~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜重～|"
   disable_user_dict_for_patterns:
     - "^z.*$"
     - "^yyy.*$"

@@ -39,6 +39,8 @@ for line in open('cangjie5.dict.yaml'):
   if len(word) > 1:
     continue
   code = parts[1]
+  if 'z' in code:
+    continue
   weight = weights.get(word, 0)
   print(f'{word}\t{code}\t{weight}', file=outfile)
 outfile.close()
