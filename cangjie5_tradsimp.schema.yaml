@@ -62,16 +62,43 @@ speller:
   alphabet: 'zyxwvutsrqponmlkjihgfedcba;,./'
   delimiter: " '"
   algebra:
-    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2/
-    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1z$3/
-    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2$3/
-    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2$3$4/
-    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1z$3$4/
-    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1$2z$4/
-    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2$3$4$5/
-    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1z$3$4$5/
-    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1$2z$4$5/
-    - derive/([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1$2$3z$5/
+    # length 2, 1 z
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2/
+    # length 3, 1 z
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1z$3/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2$3/
+    # length 3, 2 z
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/zz$3/
+    # length 4, 1 z
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2$3$4/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1z$3$4/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1$2z$4/
+    # length 4, 2 z
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/zz$3$4/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2z$4/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1zz$4/
+    # length 4, 3 z
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/zzz$4/
+    # length 5, 1 z
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2$3$4$5/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1z$3$4$5/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1$2z$4$5/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1$2$3z$5/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2$3$4$5/
+    # length 5, 2 z
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/zz$3$4$5/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2z$4$5/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2$3z$5/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1zz$4$5/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1z$3z$5/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1$2zz$5/
+    # length 5, 3 z
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/zzz$4$5/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/zz$3z$5/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/z$2zz$5/
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/$1zzz$5/
+    # length 5, 4 z
+    - derive/^([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])([abcdefghijklmnopqrstuvwxy])/zzzz$5/
   #max_code_length: 5  # 五碼頂字上屏
 
 translator:
